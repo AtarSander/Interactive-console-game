@@ -5,7 +5,7 @@ std::string Player::get_name() const { return _name; }
 
 unsigned int Player::get_health() const { return _health; }
 
-void Player::set_health(unsigned int new_health)
+void Player::set_health(int new_health)
 {
     if (new_health > 0)
     {

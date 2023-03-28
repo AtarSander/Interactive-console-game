@@ -7,7 +7,7 @@
 class Game
 {
     public:
-        Game(Player player) : _player(player) {};
+        Game(Player player1) : player(player1) {};
         void play();
         void set_current_seed(unsigned int new_seed);
         void wrong_input() const;
@@ -20,6 +20,6 @@ class Game
     private:
         std::map<unsigned int, Chapter> _map_of_chapters;
         unsigned int current_seed=12;
-        Player _player;
+        Player player;
 };
 #endif

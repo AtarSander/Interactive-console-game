@@ -14,13 +14,13 @@ void Game::play()
 
         if(!exception_occurred)
         {
-            std::cout << _map_of_chapters[current_seed].get_story() << std::endl;
+            std::cout << map_of_chapters[current_seed].get_story() << std::endl;
         }
 
         try
         {
             option = this -> input_option();
-            current_seed = _map_of_chapters[current_seed].outcome(option);
+            current_seed = map_of_chapters[current_seed].outcome(option);
             if (current_seed % 5 == 0)
             {
                 this -> change_player_state();
@@ -36,7 +36,7 @@ void Game::play()
     }
 }
 
-unsigned int Game::get_chapter_count(){ return _map_of_chapters.size(); }
+unsigned int Game::get_chapter_count(){ return map_of_chapters.size(); }
 
 void Game::set_current_seed(unsigned int new_seed) { current_seed = new_seed; }
 
@@ -59,7 +59,7 @@ void Game::change_player_state()
     int random_num = std::rand() % 10 + 1;
     try
     {
-        _player.set_health(_player.get_health() - random_num);
+        player.set_health(player.get_health() - random_num);
         this -> player_damage(random_num);
     }
     catch(const std::exception& e)
@@ -70,13 +70,13 @@ void Game::change_player_state()
 
 void Game::player_damage(int value)
 {
-    std::cout << _player.get_name() << " took " << value << " damage.\n";
-    std::cout << "Current health is " << _player.get_health() << " points.\n";
+    std::cout << player.get_name() << " took " << value << " damage.\n";
+    std::cout << "Current health is " << player.get_health() << " points.\n";
 }
 
 void Game::add_chapter(Chapter next_chapter)
 {
     unsigned int seed;
     seed = next_chapter.get_seed();
-    _map_of_chapters[seed] = next_chapter;
+    map_of_chapters[seed] = next_chapter;
 }

@@ -5,14 +5,14 @@
 #include <stdexcept>
 #include <iostream>
 
-std::string Chapter::get_story() const { return _story; }
+std::string Chapter::get_story() const { return story; }
 
-unsigned int Chapter::get_seed() const { return _seed; }
+unsigned int Chapter::get_seed() const { return seed; }
 
 unsigned int Chapter::outcome(std::string response)
 {
-    auto it = _list_of_options.find(response);
-    if (it != _list_of_options.end()) { return it->second; }
+    auto it = list_of_options.find(response);
+    if (it != list_of_options.end()) { return it->second; }
     else {throw std::invalid_argument("Wrong input: " + response); }
 
 }
@@ -29,7 +29,7 @@ void Chapter::read_from_file(std::string filename)
     }
 
     std::getline(file, line);
-    _seed = std::stoi(line);
+    seed = std::stoi(line);
 
     while (std::getline(file, line))
     {
@@ -37,7 +37,7 @@ void Chapter::read_from_file(std::string filename)
         {
             break;
         }
-        _story += line + "\n";
+        story += line + "\n";
     }
 
     while (true)
@@ -52,14 +52,14 @@ void Chapter::read_from_file(std::string filename)
         int number;
         text = line;
         number = std::stoi(line2);
-        _list_of_options[text] = number;
+        list_of_options[text] = number;
         std::cout<<text<<std::endl;
-        std::cout<<_list_of_options[text]<<std::endl;
+        std::cout<<list_of_options[text]<<std::endl;
     }
     file.close();
 
 }
 void Chapter::get_options()
 {
-    std::cout << _list_of_options["light the torch"];
+    std::cout << list_of_options["light the torch"];
 }

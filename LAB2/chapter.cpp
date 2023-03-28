@@ -51,15 +51,15 @@ void Chapter::read_from_file(std::string filename)
         std::string text;
         int number;
         text = line;
+        text = text.substr(0, text.length() - 1); //deleting \r
+        line2 = line2 = line2.substr(0, line2.length() - 1);
         number = std::stoi(line2);
         list_of_options[text] = number;
-        std::cout<<text<<std::endl;
-        std::cout<<list_of_options[text]<<std::endl;
     }
     file.close();
 
 }
 void Chapter::get_options()
 {
-    std::cout << list_of_options["light the torch"];
+    std::cout << list_of_options["turn back"];
 }

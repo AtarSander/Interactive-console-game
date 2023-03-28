@@ -1,0 +1,17 @@
+5
+You steel yourself for battle and draw your weapon. The dragon lets out a deafening roar as it charges towards you. You dodge its first attack, but it's clear that this is going to be a tough fight. The dragon is massive and powerful, and its fiery breath singes your clothes and hair.
+
+You manage to land a few good hits on the dragon, but it retaliates with a swipe of its massive claws, leaving you wounded and bleeding. You're not sure how much longer you can hold out.
+
+You have two options. You can either keep fighting, or retreat and come back later when you're better prepared.
+
+Do you keep fighting the dragon, or retreat and come back later?
+RESPONSE
+keep fighting the dragon
+10
+fight the dragon
+10
+retreat
+7
+retreat and come back later
+7

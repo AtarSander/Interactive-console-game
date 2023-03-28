@@ -19,13 +19,13 @@ void Game::play()
 
         try
         {
+            exception_occurred = false;
             option = this -> input_option();
             current_seed = map_of_chapters[current_seed].outcome(option);
             if (current_seed % 5 == 0)
             {
                 this -> change_player_state();
             }
-            exception_occurred = false;
         }
         catch(std::exception& e)
         {

@@ -18,7 +18,7 @@ class Game
         std::string input_option();
 
     private:
-        std::map<unsigned int, Chapter> _map_of_chapters;
+        std::map<unsigned int, Chapter> map_of_chapters;
         unsigned int current_seed=12;
         Player player;
 };

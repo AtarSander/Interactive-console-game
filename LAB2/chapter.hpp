@@ -17,6 +17,6 @@ class Chapter
     private:
         std::string story;
         std::map<std::string, unsigned int> list_of_options;
-        unsigned int seed;
+        unsigned int seed=0;
 };
 #endif

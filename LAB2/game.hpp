@@ -1,3 +1,5 @@
+#ifndef GAME_HPP
+#define GAME_HPP
 #include "chapter.hpp"
 #include "player.hpp"
 #include <map>
@@ -11,11 +13,13 @@ class Game
         void wrong_input() const;
         void change_player_state();
         void player_damage(int value);
+        void add_chapter(Chapter next_chapter);
         unsigned int get_chapter_count();
         std::string input_option();
 
     private:
         std::map<unsigned int, Chapter> _map_of_chapters;
-        unsigned int current_seed;
+        unsigned int current_seed=0;
         Player _player;
 };
+#endif

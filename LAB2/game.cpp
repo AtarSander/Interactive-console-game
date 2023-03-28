@@ -1,4 +1,5 @@
 #include "game.hpp"
+#include "chapter.hpp"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -8,7 +9,8 @@ void Game::play()
     bool exception_occurred = false;
     while (current_seed != 999)
     {
-        Chapter current_chapter = _map_of_chapters[current_seed];
+        Chapter current_chapter(current_seed);
+        current_chapter = _map_of_chapters[current_seed];
         std::string option;
 
 
@@ -74,3 +76,9 @@ void Game::player_damage(int value)
     std::cout << "Current health is " << _player.get_health() << " points.\n";
 }
 
+void Game::add_chapter(Chapter next_chapter)
+{
+    unsigned int seed;
+    seed = next_chapter.get_seed();
+    _map_of_chapters[seed] = next_chapter;
+}

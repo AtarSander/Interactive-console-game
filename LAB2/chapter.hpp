@@ -13,6 +13,7 @@ class Chapter
         unsigned int get_seed() const;
         unsigned int outcome(std::string response);
         void read_from_file(std::string filename);
+        void get_options();
     private:
         std::string _story;
         std::map<std::string, unsigned int> _list_of_options;

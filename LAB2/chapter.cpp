@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
+#include <iostream>
 
 std::string Chapter::get_story() const { return _story; }
 
@@ -12,43 +13,53 @@ unsigned int Chapter::outcome(std::string response)
 {
     auto it = _list_of_options.find(response);
     if (it != _list_of_options.end()) { return it->second; }
-    else { throw std::invalid_argument("Wrong input: " + response); }
+    else {throw std::invalid_argument("Wrong input: " + response); }
 
 }
 
 void Chapter::read_from_file(std::string filename)
 {
     std::ifstream file(filename);
+    std::string line;
+    std::string line2;
 
     if (!file.is_open())
     {
         throw std::runtime_error("Couldn't open the file.");
     }
 
+    std::getline(file, line);
+    _seed = std::stoi(line);
 
-    file >> _seed;
-    std::string line;
     while (std::getline(file, line))
     {
-        if (line == "RESPONSE")
+        if (line.find("RESPONSE") != std::string::npos)
         {
             break;
         }
         _story += line + "\n";
     }
 
-    while (std::getline(file, line))
+    while (true)
     {
-        if (line.empty())
+        std::getline(file, line);
+        if (line.find("END") != std::string::npos)
         {
             break;
         }
-        std::istringstream iss(line);
-        std::string option_text;
-        int option_number;
-        iss >> option_text >> option_number;
-        _list_of_options[option_text] = option_number;
+        std::getline(file, line2);
+        std::string text;
+        int number;
+        text = line;
+        number = std::stoi(line2);
+        _list_of_options[text] = number;
+        std::cout<<text<<std::endl;
+        std::cout<<_list_of_options[text]<<std::endl;
     }
     file.close();
 
+}
+void Chapter::get_options()
+{
+    std::cout << _list_of_options["light the torch"];
 }

@@ -9,20 +9,18 @@ void Game::play()
     bool exception_occurred = false;
     while (current_seed != 999)
     {
-        Chapter current_chapter(current_seed);
-        current_chapter = _map_of_chapters[current_seed];
         std::string option;
 
 
         if(!exception_occurred)
         {
-            std::cout << current_chapter.get_story() << std::endl;
+            std::cout << _map_of_chapters[current_seed].get_story() << std::endl;
         }
 
         try
         {
             option = this -> input_option();
-            current_seed = current_chapter.outcome(option);
+            current_seed = _map_of_chapters[current_seed].outcome(option);
             if (current_seed % 5 == 0)
             {
                 this -> change_player_state();
@@ -46,7 +44,7 @@ std::string Game::input_option()
 {
     std::string option;
     std::cout << "> ";
-    std::cin >> option;
+    std::getline(std::cin, option);
     return option;
 }
 

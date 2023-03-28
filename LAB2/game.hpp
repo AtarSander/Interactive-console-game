@@ -19,7 +19,7 @@ class Game
 
     private:
         std::map<unsigned int, Chapter> _map_of_chapters;
-        unsigned int current_seed=0;
+        unsigned int current_seed=12;
         Player _player;
 };
 #endif

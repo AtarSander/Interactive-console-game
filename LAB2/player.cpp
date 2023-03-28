@@ -13,6 +13,6 @@ void Player::set_health(int new_health)
     }
     else
     {
-        throw(std::invalid_argument("Invalid input: " + new_health));
+        throw(std::invalid_argument("Invalid input: " + std::to_string(new_health)));
     }
 }

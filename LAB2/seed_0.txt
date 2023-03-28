@@ -1,4 +1,4 @@
-0
+12
 Welcome adventurer, to a world filled with magic and mystery. You are a treasure hunter, seeking fortune and glory in the far corners of this fantastical land. The journey ahead will be perilous, but the rewards could be great. Are you ready to embark on this adventure?
 
 Your quest begins at the entrance of a dark and foreboding cave. Legend has it that deep within its depths lies a treasure beyond your wildest dreams. As you take your first steps into the cave, the air grows colder and the darkness thickens. You can hear the sound of dripping water echoing off the walls.
@@ -11,3 +11,4 @@ turn back
 2
 search for another path
 2
+END

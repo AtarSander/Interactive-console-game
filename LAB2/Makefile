@@ -20,7 +20,7 @@ test_chapter: chapter.o test/test_chapter.cpp
 	$(CXX) $(CXX_FLAGS) chapter.o test/test_chapter.cpp -o test_chapter && ./test_chapter --success
 
 test_game: chapter.o player.o game.o test/test_game.cpp
-	$(CXX) $(CXX_FLAGS) game.o test/test_game.cpp -o test_game && ./test_game --success
+	$(CXX) $(CXX_FLAGS) game.o chapter.o player.o test/test_game.cpp -o test_game && ./test_game --success
 
 tests: test_game test_player test_chapter
 

@@ -1,5 +1,6 @@
 #include "game.hpp"
 #include "chapter.hpp"
+#include "player.hpp"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -80,3 +81,14 @@ void Game::add_chapter(Chapter next_chapter)
     seed = next_chapter.get_seed();
     map_of_chapters[seed] = next_chapter;
 }
+
+Chapter Game::get_chapter(unsigned int seed)
+{
+    auto it = map_of_chapters.find(seed);
+    if (it != map_of_chapters.end()) { return it->second; }
+    else {throw std::invalid_argument("Wrong input: " +  std::to_string(seed)); }
+}
+
+Player Game::get_player() const{ return player; }
+
+unsigned int Game::get_current_seed() { return current_seed; }

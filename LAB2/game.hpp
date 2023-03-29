@@ -14,7 +14,10 @@ class Game
         void change_player_state();
         void player_damage(int value);
         void add_chapter(Chapter next_chapter);
+        Chapter get_chapter(unsigned int seed);
         unsigned int get_chapter_count();
+        Player get_player() const;
+        unsigned int get_current_seed();
         std::string input_option();
 
     private:

@@ -14,6 +14,7 @@ class Game
         void change_player_state();
         void player_damage(int value);
         void add_chapter(Chapter next_chapter);
+        void config_chapters(std::string config_file);
         Chapter get_chapter(unsigned int seed);
         unsigned int get_chapter_count();
         Player get_player() const;
@@ -23,6 +24,7 @@ class Game
     private:
         std::map<unsigned int, Chapter> map_of_chapters;
         unsigned int current_seed=12;
+        unsigned int chap_count;
         Player player;
 };
 #endif

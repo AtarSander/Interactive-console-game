@@ -4,6 +4,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
+#include <sstream>
 
 void Game::play()
 {
@@ -92,3 +94,39 @@ Chapter Game::get_chapter(unsigned int seed)
 Player Game::get_player() const{ return player; }
 
 unsigned int Game::get_current_seed() { return current_seed; }
+
+void Game::config_chapters(std::string config_file)
+{
+    std::ifstream file(config_file);
+    std::string line;
+    unsigned int i=0;
+
+    // if (!file.is_open())
+    // {
+    //     throw std::runtime_error("Couldn't open the file.");
+    // }
+
+    std::getline(file, line);
+    chap_count = std::stoi(line);
+    Chapter* chapters = new Chapter[chap_count];
+
+
+    while (std::getline(file, line))
+    {
+        if (line.find("END") != std::string::npos)
+        {
+            break;
+        }
+        std::string text;
+        text = line;
+        text = text.substr(0, text.length() - 1); //deleting \r
+        chapters[i].read_from_file(text);
+        this -> add_chapter(chapters[i]);
+        i++;
+    }
+    delete[] chapters;
+    file.close();
+}
+
+
+

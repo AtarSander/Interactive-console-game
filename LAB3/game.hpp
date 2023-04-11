@@ -3,6 +3,7 @@
 #include "chapter.hpp"
 #include "player.hpp"
 #include <map>
+#include <chrono>
 
 class Game
 {
@@ -15,6 +16,7 @@ class Game
         void player_damage(int value);
         void add_chapter(Chapter next_chapter);
         void config_chapters(std::string config_file);
+        void save_game(std::string save_file);
         Chapter get_chapter(unsigned int seed);
         unsigned int get_chapter_count();
         Player get_player() const;
@@ -24,7 +26,9 @@ class Game
     private:
         std::map<unsigned int, Chapter> map_of_chapters;
         unsigned int current_seed=1000;
+        unsigned int previous_seed=0;
         unsigned int chap_count;
+        std::chrono::seconds game_time{0};
         Player player;
 };
 #endif

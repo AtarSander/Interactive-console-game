@@ -15,7 +15,13 @@ void Game::play()
     while (current_seed != 999)
     {
         std::string option;
-
+        if(current_seed == 1001)
+        {
+            auto end = std::chrono::steady_clock::now();
+            game_time = std::chrono::duration_cast<std::chrono::seconds>(end - start);
+            this -> save_game("save.txt");
+            exit(0);
+        }
 
         if(!exception_occurred)
         {
@@ -26,6 +32,7 @@ void Game::play()
         {
             exception_occurred = false;
             option = this -> input_option();
+            previous_seed = current_seed;
             current_seed = map_of_chapters[current_seed].outcome(option);
             if (current_seed % 5 == 0)
             {
@@ -41,10 +48,11 @@ void Game::play()
 
     auto end = std::chrono::steady_clock::now();
     auto elapsed_seconds = std::chrono::duration_cast<std::chrono::seconds>(end - start);
-    unsigned int hours = elapsed_seconds.count() / 3600;
-    unsigned int minutes = (elapsed_seconds.count() % 3600) / 60;
+    unsigned int seconds = elapsed_seconds.count() + game_time.count();
+    unsigned int hours = seconds / 3600;
+    unsigned int minutes = (seconds % 3600) / 60;
     std::cout << "\n\nGAME OVER\n\n";
-    std::cout << "Playtime: " << hours << "h " << minutes << "min " << elapsed_seconds.count() << "seconds" << std::endl;
+    std::cout << "Playtime: " << hours << "h " << minutes << "min " << seconds << "seconds" << std::endl;
     exit(0);
 }
 
@@ -139,4 +147,20 @@ void Game::config_chapters(std::string config_file)
     }
     delete[] chapters;
     file.close();
+}
+
+void Game::save_game(std::string save_file)
+{
+    std::ofstream filename(save_file);
+    if(filename.is_open())
+    {
+        filename << previous_seed << "\n";
+        filename << player.get_name() << "\n";
+        filename << player.get_health() << "\n";
+        filename << game_time.count() << "\n";
+    }
+    else
+    {
+        throw std::runtime_error("Couldn't open the file.");
+    }
 }

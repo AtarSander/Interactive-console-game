@@ -6,10 +6,12 @@
 #include <ctime>
 #include <fstream>
 #include <sstream>
+#include <chrono>
 
 void Game::play()
 {
     bool exception_occurred = false;
+    auto start = std::chrono::steady_clock::now();
     while (current_seed != 999)
     {
         std::string option;
@@ -35,8 +37,15 @@ void Game::play()
             this -> wrong_input();
             exception_occurred = true;
         }
-
     }
+
+    auto end = std::chrono::steady_clock::now();
+    auto elapsed_seconds = std::chrono::duration_cast<std::chrono::seconds>(end - start);
+    unsigned int hours = elapsed_seconds.count() / 3600;
+    unsigned int minutes = (elapsed_seconds.count() % 3600) / 60;
+    std::cout << "\n\nGAME OVER\n\n";
+    std::cout << "Playtime: " << hours << "h " << minutes << "min " << elapsed_seconds.count() << "seconds" << std::endl;
+    exit(0);
 }
 
 unsigned int Game::get_chapter_count(){ return map_of_chapters.size(); }
@@ -67,7 +76,7 @@ void Game::change_player_state()
     }
     catch(const std::exception& e)
     {
-        current_seed = 999;
+        current_seed = 998;
     }
 }
 
@@ -101,10 +110,10 @@ void Game::config_chapters(std::string config_file)
     std::string line;
     unsigned int i=0;
 
-    // if (!file.is_open())
-    // {
-    //     throw std::runtime_error("Couldn't open the file.");
-    // }
+    if (!file.is_open())
+    {
+        throw std::runtime_error("Couldn't open the file.");
+    }
 
     std::getline(file, line);
     chap_count = std::stoi(line);
@@ -119,7 +128,11 @@ void Game::config_chapters(std::string config_file)
         }
         std::string text;
         text = line;
-        text = text.substr(0, text.length() - 1); //deleting \r
+        char last_char =text[text.size() - 1];
+        if (last_char == '\r')
+        {
+            text = text.substr(0, text.length() - 1); //deleting \r for windows files
+        }
         chapters[i].read_from_file(text);
         this -> add_chapter(chapters[i]);
         i++;
@@ -127,6 +140,3 @@ void Game::config_chapters(std::string config_file)
     delete[] chapters;
     file.close();
 }
-
-
-

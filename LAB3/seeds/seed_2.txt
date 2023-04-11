@@ -15,4 +15,6 @@ head west towards the city
 6
 head towards the city
 6
+SAVE GAME
+1001
 END

@@ -11,4 +11,6 @@ investigate
 11
 investigate the shelf
 11
+SAVE GAME
+1001
 END

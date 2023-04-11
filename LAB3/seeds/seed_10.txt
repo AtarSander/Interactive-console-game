@@ -11,4 +11,12 @@ continue searching the lair
 24
 search the lair
 24
+leave with my spoils
+4
+leave with my spoils and head towards the forest
+4
+head towards the forest
+4
+SAVE GAME
+1001
 END

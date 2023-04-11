@@ -15,4 +15,6 @@ continue
 9
 continue on your journey through the forest
 9
+SAVE GAME
+1001
 END

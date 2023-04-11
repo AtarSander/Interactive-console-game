@@ -15,4 +15,6 @@ retreat
 2
 retreat and come back later
 2
+SAVE GAME
+1001
 END

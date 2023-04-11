@@ -11,4 +11,6 @@ stay in the city and look for more information
 18
 stay in the city
 18
+SAVE GAME
+1001
 END

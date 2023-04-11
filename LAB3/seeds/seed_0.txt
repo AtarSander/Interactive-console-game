@@ -11,4 +11,6 @@ turn back
 2
 search for another path
 2
+SAVE GAME
+1001
 END

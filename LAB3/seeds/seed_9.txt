@@ -13,4 +13,6 @@ follow the stream downstream
 16
 downstream
 16
+SAVE GAME
+1001
 END

@@ -15,4 +15,6 @@ check quests
 11
 head to the notice board
 11
+SAVE GAME
+1001
 END

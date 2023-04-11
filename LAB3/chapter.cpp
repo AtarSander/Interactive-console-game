@@ -51,8 +51,16 @@ void Chapter::read_from_file(std::string filename)
         std::string text;
         int number;
         text = line;
-        text = text.substr(0, text.length() - 1); //deleting \r
-        line2 = line2 = line2.substr(0, line2.length() - 1);
+        char last_char = text[text.size() - 1];
+        if (last_char == '\r')
+        {
+            text = text.substr(0, text.length() - 1); //deleting \r for windows files
+        }
+        last_char = line2[line2.size() - 1];
+        if (last_char == '\r')
+        {
+            line2 = line2.substr(0, line2.length() - 1);
+        }
         number = std::stoi(line2);
         list_of_options[text] = number;
     }

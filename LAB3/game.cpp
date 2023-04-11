@@ -18,9 +18,15 @@ void Game::play()
         if(current_seed == 1001)
         {
             auto end = std::chrono::steady_clock::now();
-            game_time = std::chrono::duration_cast<std::chrono::seconds>(end - start);
+            auto elapsed_seconds = std::chrono::duration_cast<std::chrono::seconds>(end - start);
+            game_time = elapsed_seconds.count();
             this -> save_game("save.txt");
             exit(0);
+        }
+
+        if(current_seed == 1002)
+        {
+            this -> load_game("save.txt");
         }
 
         if(!exception_occurred)
@@ -48,7 +54,7 @@ void Game::play()
 
     auto end = std::chrono::steady_clock::now();
     auto elapsed_seconds = std::chrono::duration_cast<std::chrono::seconds>(end - start);
-    unsigned int seconds = elapsed_seconds.count() + game_time.count();
+    unsigned int seconds = elapsed_seconds.count() + game_time;
     unsigned int hours = seconds / 3600;
     unsigned int minutes = (seconds % 3600) / 60;
     std::cout << "\n\nGAME OVER\n\n";
@@ -157,10 +163,29 @@ void Game::save_game(std::string save_file)
         filename << previous_seed << "\n";
         filename << player.get_name() << "\n";
         filename << player.get_health() << "\n";
-        filename << game_time.count() << "\n";
+        filename << game_time << "\n";
     }
     else
     {
         throw std::runtime_error("Couldn't open the file.");
     }
+}
+
+void Game::load_game(std::string save_file)
+{
+    std::ifstream file(save_file);
+    std::string line;
+
+    std::getline(file, line);
+    current_seed = std::stoi(line);
+    previous_seed = current_seed;
+
+    std::getline(file, line);
+    player.set_name(line);
+
+    std::getline(file, line);
+    player.set_health(std::stoi(line));
+
+    std::getline(file, line);
+    game_time = std::stoi(line);
 }

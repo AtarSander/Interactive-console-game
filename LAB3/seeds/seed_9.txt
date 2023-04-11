@@ -1,0 +1,16 @@
+9
+You decide to continue on your journey through the forest. As you travel deeper into the woods, you notice that the trees are becoming denser and the underbrush thicker.
+
+After a while, you come across a small stream. You could follow the stream upstream or downstream. Which way do you choose to go?
+
+Do you follow the stream upstream, or downstream?
+RESPONSE
+follow the stream upstream
+14
+upstream
+14
+follow the stream downstream
+16
+downstream
+16
+END

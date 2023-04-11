@@ -1,0 +1,12 @@
+998
+You fall to the ground, unable to move. You feel the cold embrace of death creeping over you, and in your final moments, you think of the distant lands you will never explore, the treasures you will never uncover, and the adventures you will never experience.
+
+With a heavy heart, you accept your fate, knowing that your journey as a treasure hunter has come to an end. Your name will be forgotten, and your legacy will be one of unfulfilled potential. But fear not, for there will be other adventurers who will continue your quest and carry on your legacy. (type game over to finish the game)
+RESPONSE
+rip
+999
+game over
+999
+GAME OVER
+999
+END

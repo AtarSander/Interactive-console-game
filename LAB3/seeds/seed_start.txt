@@ -1,0 +1,21 @@
+1000
+Welcome to  "Adventurer's Odyssey: A Journey into the Unknown"! It's interactive fiction - text adventure game where your action and choices shape the future.
+
+Type selected option:
+NEW GAME
+LOAD SAVE
+QUIT
+RESPONSE
+new game
+12
+NEW GAME
+12
+load save
+1001
+LOAD SAVE
+1001
+quit
+999
+QUIT
+999
+END

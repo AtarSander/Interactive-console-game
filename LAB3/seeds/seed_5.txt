@@ -1,0 +1,20 @@
+5
+You steel yourself for battle and draw your weapon. The troll lets out a deafening roar as it charges towards you. You dodge its first attack, but it's clear that this is going to be a tough fight. The troll is massive and powerful, and its fists fly over your head.
+
+You manage to land a few good hits on the troll, but it retaliates with a swipe of its massive club, leaving you wounded and bleeding. You're not sure how much longer you can hold out.
+
+You have two options. You can either keep fighting, or retreat and come back later when you're better prepared.
+
+Do you keep fighting the troll, or retreat and come back later?
+RESPONSE
+keep fighting the troll
+10
+fight the troll
+10
+retreat
+2
+retreat and come back later
+2
+SAVE GAME
+1001
+END

@@ -1,0 +1,20 @@
+6
+You head west towards the city, the distant skyline growing closer with every step. As you approach the city gates, you see guards standing watch. They eye you suspiciously, but allow you to enter when you tell them you're a treasure hunter.
+
+The city is bustling with activity. Merchants sell their wares in the streets, and performers entertain crowds with music and acrobatics. You also see a notice board with various requests for help and information about rumored treasures.
+
+Do you explore the city and look for work, or head straight to the notice board to see what treasure quests are available?
+
+Do you explore the city and look for work, or head straight to the notice board to see what treasure quests are available?
+RESPONSE
+explore the city
+8
+explore the city and look for work
+8
+check quests
+11
+head to the notice board
+11
+SAVE GAME
+1001
+END

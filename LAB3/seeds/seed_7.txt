@@ -1,0 +1,16 @@
+7
+You approach the hut cautiously, not sure what to expect. As you get closer, you notice that the door is slightly ajar. You push it open and step inside, calling out a greeting.
+
+The room is small and cluttered, with a table in the center and shelves lining the walls. You see a small chest in the corner, which may contain something valuable. Do you search the chest, or investigate the shelves?
+RESPONSE
+search the chest
+15
+search
+15
+investigate
+11
+investigate the shelf
+11
+SAVE GAME
+1001
+END

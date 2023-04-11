@@ -1,0 +1,20 @@
+4
+You head east towards the forest, pushing your way through the thick underbrush. As you travel deeper into the forest, you start to notice strange plants and creatures that you've never seen before. You also hear strange whispers and rustling sounds that make you feel uneasy.
+
+After a while, you come across a clearing. In the center of the clearing, you see a small hut. Smoke is coming from the chimney, so someone must be inside. Do you investigate the hut, or continue on your journey through the forest?
+
+Do you investigate the hut, or continue on your journey through the forest?
+RESPONSE
+investigate
+7
+ivestigate the hut
+7
+continue through the forest
+9
+continue
+9
+continue on your journey through the forest
+9
+SAVE GAME
+1001
+END

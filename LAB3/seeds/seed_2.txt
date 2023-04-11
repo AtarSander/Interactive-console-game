@@ -1,0 +1,20 @@
+2
+You decide to turn back and search for another path. After wandering for a while, you come across a fork in the road. To the east, you see a dense forest, while to the west, you see the outline of a city in the distance. Which way do you choose to go?
+
+Do you head east towards the forest, or west towards the city?
+RESPONSE
+head east
+4
+head east towards the forest
+4
+head towards the forest
+4
+head west
+6
+head west towards the city
+6
+head towards the city
+6
+SAVE GAME
+1001
+END

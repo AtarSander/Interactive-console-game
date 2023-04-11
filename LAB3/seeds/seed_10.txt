@@ -1,0 +1,22 @@
+10
+You decide to keep fighting the troll, despite your wounds. You manage to dodge most of its attacks, and land a few more hits of your own. Finally, after what seems like an eternity, the troll collapses to the ground, defeated.
+
+As you catch your breath, you notice a glint of gold in the troll's lair. You investigate and discover a valuable gemstone, which you can add to your treasure trove(*RUBY ADDED TO EQUIPMENT*).
+
+Do you continue searching the lair for more treasure, or do you leave with your spoils and head towards the forest?
+RESPONSE
+continue searching the lair for more treasure
+24
+continue searching the lair
+24
+search the lair
+24
+leave with my spoils
+4
+leave with my spoils and head towards the forest
+4
+head towards the forest
+4
+SAVE GAME
+1001
+END

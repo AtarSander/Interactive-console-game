@@ -1,0 +1,16 @@
+8
+You spend some time exploring the city, checking out the shops and talking to the locals. You hear rumors of a powerful artifact hidden in the nearby mountains, but also of dangerous monsters that lurk in the area.
+
+Do you go to the mountains to search for the artifact, or do you stay in the city and look for more information?
+RESPONSE
+go to the mountains
+17
+go to the mountains to search for the artifact
+17
+stay in the city and look for more information
+18
+stay in the city
+18
+SAVE GAME
+1001
+END

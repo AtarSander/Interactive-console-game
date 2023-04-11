@@ -1,0 +1,22 @@
+1
+You light your torch and venture deeper into the cave. The flickering flame casts eerie shadows on the walls as you make your way further into the unknown. As you continue on, the path becomes steeper and more treacherous. You have to be careful not to slip and fall.
+
+After what seems like hours of walking, you come across a large chamber. In the center of the chamber, you see a glittering pile of gold and jewels. This must be the treasure you have been seeking! But as you take a step closer, you hear a loud growling sound. Suddenly, a massive troll appears from the shadows, blocking your path to the treasure.
+
+You have two options. You can either try to fight the troll, or make a run for it and hope it doesn't catch you.
+
+Do you fight the troll, or make a run for it?
+RESPONSE
+fight the troll
+5
+fight
+5
+run for it
+3
+make a run
+3
+run
+3
+SAVE GAME
+1001
+END

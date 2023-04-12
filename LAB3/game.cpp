@@ -42,10 +42,30 @@ void Game::play()
             current_seed = map_of_chapters[current_seed].outcome(option);
             if (current_seed % 5 == 0)
             {
+                if (current_seed % 10 == 0)
+                {
+                    if(player.find_useful_item("damage") == 0)
+                    {
+                        current_seed +=7;
+                    }
+                    else
+                    {
+                        this -> change_player_state();
+                    }
+
+                }
+                else
+                {
                 this -> change_player_state();
+                }
+            }
+            if (current_seed % 11 == 0)
+            {
+                Item item_1("Powerful scroll", "damage", 1);
+                player.add_item(item_1);
             }
         }
-        catch(std::exception& e)
+        catch(std::invalid_argument& e)
         {
             this -> wrong_input();
             exception_occurred = true;

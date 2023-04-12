@@ -19,9 +19,9 @@ class Game
         void save_game(std::string save_file);
         void load_game(std::string save_file);
         Chapter get_chapter(unsigned int seed);
-        unsigned int get_chapter_count();
+        unsigned int get_chapter_count() const;
         Player get_player() const;
-        unsigned int get_current_seed();
+        unsigned int get_current_seed() const;
         std::string input_option();
 
     private:

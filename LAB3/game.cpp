@@ -82,7 +82,7 @@ void Game::play()
     exit(0);
 }
 
-unsigned int Game::get_chapter_count(){ return map_of_chapters.size(); }
+unsigned int Game::get_chapter_count() const{ return map_of_chapters.size(); }
 
 void Game::set_current_seed(unsigned int new_seed) { current_seed = new_seed; }
 
@@ -136,7 +136,7 @@ Chapter Game::get_chapter(unsigned int seed)
 
 Player Game::get_player() const{ return player; }
 
-unsigned int Game::get_current_seed() { return current_seed; }
+unsigned int Game::get_current_seed() const{ return current_seed; }
 
 void Game::config_chapters(std::string config_file)
 {

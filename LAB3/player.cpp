@@ -24,6 +24,8 @@ void Player::set_health(int new_health)
 
 void Player::add_item(Item new_item){  equipment.push_back(new_item);  }
 
+std::list<Item> Player::get_equipment() const { return equipment; }
+
 unsigned int Player::find_useful_item(std::string type)
 {
     auto it = std::find_if(equipment.begin(), equipment.end(), [&](const Item& item)

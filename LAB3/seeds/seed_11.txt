@@ -1,0 +1,16 @@
+11
+You decide to come back and fight the troll another day. As you make your way back to the cave, you come across an old hermit who offers to sell you a powerful spell that could help you defeat the troll.
+
+You purchase the spell, feeling more confident about your chances of victory. Do you proceed to fight the troll again, or do you try to sneak past it to reach the treasure?
+RESPONSE
+fight the troll
+10
+fight the troll again
+10
+proceed to fight the troll again
+10
+sneak past it
+21
+sneak past it to reach the treasure
+21
+END

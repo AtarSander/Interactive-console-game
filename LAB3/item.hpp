@@ -5,7 +5,7 @@
 class Item
 {
     public:
-        Item(std::string name, unsigned int uses): name(name), uses(uses){};
+        Item(std::string name, std::string type, unsigned int uses): name(name), type(type), uses(uses){};
         std::string get_name() const;
         std::string get_type() const;
         unsigned int get_uses() const;

@@ -13,6 +13,7 @@ class Player
         void set_name(std::string new_name);
         void set_health(int new_health);
         void add_item(Item new_item);
+        std::list<Item> get_equipment() const;
         unsigned int find_useful_item(std::string type);
     private:
         std::string name;

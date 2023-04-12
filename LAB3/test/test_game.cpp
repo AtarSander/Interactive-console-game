@@ -18,7 +18,7 @@ TEST_CASE("Game input_option function")
     Game game(player1);
 
     Chapter chapter(123);
-    chapter.read_from_file("seed_0.txt");
+    chapter.read_from_file("seeds/seed_0.txt");
     game.add_chapter(chapter);
 
     std::istringstream input("turn back\n");
@@ -35,7 +35,7 @@ TEST_CASE("Game add_chapter function")
     Game game(player1);
 
     Chapter chapter(123);
-    chapter.read_from_file("seed_0.txt");
+    chapter.read_from_file("seeds/seed_0.txt");
     game.add_chapter(chapter);
     SECTION("Correct chapter_count")
     {

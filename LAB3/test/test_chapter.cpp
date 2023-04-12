@@ -22,7 +22,7 @@ TEST_CASE("Chapter constructor and getter functions")
 TEST_CASE("Chapter outcome function")
 {
     Chapter chapter(123);
-    chapter.read_from_file("seed_0.txt");
+    chapter.read_from_file("seeds/seed_0.txt");
 
     REQUIRE(chapter.outcome("light the torch") == 1);
     REQUIRE(chapter.outcome("turn back") == 2);
@@ -31,7 +31,7 @@ TEST_CASE("Chapter outcome function")
 TEST_CASE("Chapter read_from_file method")
 {
     Chapter chapter;
-    chapter.read_from_file("seed_0.txt");
+    chapter.read_from_file("seeds/seed_0.txt");
 
     SECTION("Story is read correctly")
     {

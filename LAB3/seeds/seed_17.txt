@@ -1,0 +1,22 @@
+17
+You decide to keep fighting the troll, despite your wounds. You manage to dodge most of its attacks, and then you read the runes from ancient scroll you just bought from the wizard. A giant fireball emerges from withing you, hits the beast, which collapses to the ground, defeated.
+
+As you catch your breath, you notice a glint of gold in the troll's lair. You investigate and discover a valuable gemstone, which you can add to your treasure trove.
+
+Do you continue searching the lair for more treasure, or do you leave with your spoils and head towards the forest?
+RESPONSE
+continue searching the lair for more treasure
+24
+continue searching the lair
+24
+search the lair
+24
+leave with my spoils
+4
+leave with my spoils and head towards the forest
+4
+head towards the forest
+4
+SAVE GAME
+1001
+END

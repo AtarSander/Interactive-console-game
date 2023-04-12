@@ -31,4 +31,4 @@ test_item: item.o test/test_item.cpp
 tests: test_item test_player test_chapter test_game
 
 clean:
-	rm -f main *.o test_player test_game test_chapter LAB*
+	rm -f main *.o test_player test_game test_chapter test_item LAB*

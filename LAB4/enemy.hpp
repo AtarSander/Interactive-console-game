@@ -16,7 +16,6 @@ class Enemy : public Entity
         virtual void attack(std::shared_ptr<Entity> other) override;
         virtual void defend(int damage) override;
         double checkResistance(std::string type);
-        std::string transferType(std::string type);
 
     private:
         unsigned int strength;

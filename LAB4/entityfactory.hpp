@@ -13,20 +13,22 @@ enum class EntityType
     Player
 };
 
-class EntityFactory {
+class EntityFactory
+{
 public:
-    std::unique_ptr<Entity> createEntity(EntityType type, std::string name,
+    std::shared_ptr<Entity> createEntity(EntityType type, std::string name,
                                          int health, int base_damage,
-                                         int base_armor, std::string weapon_type,
-                                         std::map<std::string, double> enemy_resistances, double crit_chance);
+                                         int base_armor, std::map<std::string, double> enemy_resistances = {},
+                                         std::string weapon_type ="",
+                                         double crit_chance=0);
 
 private:
-    std::unique_ptr<Entity> createEnemy(std::string name, int health,
+    std::shared_ptr<Entity> createEnemy(std::string name, int health,
                                         int base_damage, int base_armor,
                                         std::map<std::string, double> enemy_resistances);
-    std::unique_ptr<Entity> createWeapon(std::string name, int durability, int base_damage,
+    std::shared_ptr<Entity> createWeapon(std::string name, int durability, int base_damage,
                                          std::string type, double crit_chance);
-    std::unique_ptr<Entity> createPlayer(std::string name, int health, int base_damage,
+    std::shared_ptr<Entity> createPlayer(std::string name, int health, int base_damage,
                                          int base_armor);
 };
 #endif

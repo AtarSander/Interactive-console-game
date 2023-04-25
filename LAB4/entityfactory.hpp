@@ -17,12 +17,13 @@ public:
     std::unique_ptr<Entity> createEntity(EntityType type, std::string name,
                                          int health, int base_damage,
                                          int base_armor, std::string weapon_type,
-                                         std::map<std::string, double> enemy_resistances);
+                                         std::map<std::string, double> enemy_resistances, double crit_chance);
 
 private:
     std::unique_ptr<Entity> createEnemy(std::string name, unsigned int health,
                                         unsigned int base_damage, unsigned int base_armor,
                                         std::map<std::string, double> enemy_resistances);
-    std::unique_ptr<Entity> createWeapon(std::string name, unsigned int base_damage, std::string type);
+    std::unique_ptr<Entity> createWeapon(std::string name, unsigned int durability, unsigned int base_damage,
+                                         std::string type, double crit_chance);
 };
 #endif

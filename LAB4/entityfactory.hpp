@@ -21,7 +21,8 @@ public:
 
 private:
     std::unique_ptr<Entity> createEnemy(std::string name, unsigned int health,
-                                        unsigned int base_damage, unsigned int base_armor);
+                                        unsigned int base_damage, unsigned int base_armor,
+                                        std::map<std::string, double> enemy_resistances);
     std::unique_ptr<Entity> createWeapon(std::string name, unsigned int base_damage, std::string type);
 };
 #endif

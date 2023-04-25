@@ -9,7 +9,8 @@
 enum class EntityType
 {
     Enemy,
-    Weapon
+    Weapon,
+    Player
 };
 
 class EntityFactory {
@@ -20,10 +21,12 @@ public:
                                          std::map<std::string, double> enemy_resistances, double crit_chance);
 
 private:
-    std::unique_ptr<Entity> createEnemy(std::string name, unsigned int health,
-                                        unsigned int base_damage, unsigned int base_armor,
+    std::unique_ptr<Entity> createEnemy(std::string name, int health,
+                                        int base_damage, int base_armor,
                                         std::map<std::string, double> enemy_resistances);
-    std::unique_ptr<Entity> createWeapon(std::string name, unsigned int durability, unsigned int base_damage,
+    std::unique_ptr<Entity> createWeapon(std::string name, int durability, int base_damage,
                                          std::string type, double crit_chance);
+    std::unique_ptr<Entity> createPlayer(std::string name, int health, int base_damage,
+                                         int base_armor);
 };
 #endif

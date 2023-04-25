@@ -7,23 +7,28 @@
 class Entity
 {
     public:
-    Entity(std::string name, unsigned int health, unsigned int base_damage, unsigned int base_armor) :
+    Entity(std::string name, int health, int base_damage, int base_armor) :
     name(name), health(health), base_damage(base_damage), base_armor(base_armor){};
-    virtual ~Entity();
+    virtual ~Entity() = default;
     virtual void attack(std::shared_ptr<Entity> other);
-    virtual void defend(unsigned int damage);
-    virtual bool Exists() const;
+    virtual void defend(int damage);
+    virtual bool exists() const;
+    void setHealth(int new_health);
+    void setArmor(int new_armor);
+    void transferParameter(std::string data);
 
     std::string getName() const;
-    unsigned int getHealth() const;
-    unsigned int getBaseDamage() const;
-    unsigned int getBaseArmor() const;
+    std::string getParameter() const;
+    int getHealth() const;
+    int getBaseDamage() const;
+    int getBaseArmor() const;
 
     private:
         std::string const name;
-        unsigned int health;
-        unsigned int base_damage;
-        unsigned int base_armor;
+        int health;
+        int base_damage;
+        int base_armor;
+        std::string parameter = "";
 };
 
 #endif

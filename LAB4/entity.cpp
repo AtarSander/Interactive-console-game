@@ -46,5 +46,3 @@ int Entity::getHealth() const { return health;}
 int Entity::getBaseDamage() const { return base_damage;}
 
 int Entity::getBaseArmor() const { return base_armor;}
-
-

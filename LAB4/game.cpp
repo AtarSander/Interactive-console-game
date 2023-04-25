@@ -1,5 +1,5 @@
 #include "game.hpp"
-#include "player.cpp"
+#include "player.hpp"
 #include <memory>
 #include <algorithm>
 #include <iostream>
@@ -14,12 +14,21 @@ void Game::play(std::shared_ptr<Player> player1)
     {
         if(!current_enemy -> exists())
         {
-            list_of_enemies.pop_front();
             current_enemy = std::move(list_of_enemies.front());
             this -> selectWeapon(this -> inputStr());
             player -> addWeapon(current_weapon);
+            list_of_enemies.pop_front();
         }
-        this -> round();
+        if (!player -> exists())
+        {
+            std::cout<<"You are dead.\n";
+            break;
+        }
+        if (!list_of_enemies.empty())
+        {
+            this -> round();
+        }
+
     }
     exit(0);
 }
@@ -35,6 +44,8 @@ void Game::round()
     enemy_health = current_enemy -> getHealth();
     enemy_damage = enemy_damage - enemy_health;
     player_damage = player_damage - player_health;
+    if (player_health < 0) player_health = 0;
+    if (enemy_health < 0) enemy_health = 0;
     this -> printResult(player_damage, player_health, enemy_health, enemy_damage);
 }
 
@@ -50,12 +61,24 @@ void Game::printResult(int player_damage, int player_health, int enemy_health, i
 
 void Game::selectWeapon(std::string name)
 {
+    bool found_weapon = false;
     for (auto& weapon : list_of_weapons)
     {
-        if (weapon -> getName() == name)
+        if (weapon->getName() == name)
         {
-        current_weapon = std::move(weapon);
+            current_weapon = std::move(weapon);
+            found_weapon = true;
+            break;
         }
+    }
+    if (!found_weapon)
+    {
+        std::cout << "Invalid weapon name. Please try again." << std::endl;
+        selectWeapon(inputStr());
+    }
+    else
+    {
+        std::cout << "Selected weapon: " << current_weapon->getName() << std::endl;
     }
 }
 
@@ -68,12 +91,35 @@ std::string Game::inputStr()
     return value;
 }
 
-void Game::addEnemy(std::unique_ptr<Entity> enemy)
+void Game::addEnemy(std::shared_ptr<Entity> enemy)
 {
     list_of_enemies.push_back(enemy);
 }
 
-void Game::addWeapon(std::unique_ptr<Entity> weapon)
+void Game::addWeapon(std::shared_ptr<Entity> weapon)
 {
     list_of_weapons.push_back(weapon);
 }
+
+// void inputData()
+// {
+//     std::string name, weapon_type;
+//     int health, base_damage, base_armor;
+//     std::map<std::string, double> enemy_resistances;
+//     double crit_chance;
+//     std::cout << "Name: ";
+//     std::cin >> name;
+//     std::cout << std::endl;
+//     std::cout << "Weapon type: ";
+//     std::cin >> weapon_type;
+//     std::cout << std::endl;
+//     std::cout << "Health: ";
+//     std::cin >> health;
+//     std::cout << std::endl;
+//     std::cout << "Base damage: ";
+//     std::cin >> base_damage;
+//     std::cout << std::endl;
+//     std::cout << "Base armor: ";
+//     std::cin >> base_damage;
+//     std::cout << std::endl;
+// }

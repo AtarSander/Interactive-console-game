@@ -7,14 +7,14 @@
 void Game::play(std::shared_ptr<Player> player1)
 {
     player = std::move(player1);
-    current_enemy = std::move(list_of_enemies.front());
+    current_enemy = list_of_enemies.front();
     this -> selectWeapon(this -> inputStr());
     player -> addWeapon(current_weapon);
     while(!list_of_enemies.empty())
     {
         if(!current_enemy -> exists())
         {
-            current_enemy = std::move(list_of_enemies.front());
+            current_enemy = list_of_enemies.front();
             this -> selectWeapon(this -> inputStr());
             player -> addWeapon(current_weapon);
             list_of_enemies.pop_front();
@@ -66,7 +66,7 @@ void Game::selectWeapon(std::string name)
     {
         if (weapon->getName() == name)
         {
-            current_weapon = std::move(weapon);
+            current_weapon = weapon;
             found_weapon = true;
             break;
         }

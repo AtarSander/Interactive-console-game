@@ -10,7 +10,14 @@ void Enemy::attack(std::shared_ptr<Entity> other)
 
 void Enemy::defend(int damage)
 {
-
+    double resistance = checkResistance(getParameter());
+    damage = damage * (1 - resistance);
+    if (getBaseArmor() > 0)
+    {
+        setArmor(getBaseArmor() - (damage * 0.2));
+        damage = damage * 0.8;
+    }
+    setHealth(getHealth() - damage);
 }
 
 double Enemy::checkResistance(std::string type)

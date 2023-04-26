@@ -16,10 +16,11 @@ class Enemy : public Entity
         virtual void attack(std::shared_ptr<Entity> other) override;
         virtual void defend(int damage) override;
         double checkResistance(std::string type);
+        void addResistance(std::string name, double value);
 
     private:
-        unsigned int strength;
-        std::map<std::string, double> resistances;
+        unsigned int strength=0;
+        std::map<std::string, double> resistances={};
 
 };
 

@@ -22,6 +22,4 @@ class Game
         std::shared_ptr<Player> player;
 };
 
-void inputData();
-
 #endif

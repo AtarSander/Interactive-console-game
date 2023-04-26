@@ -17,8 +17,8 @@ class EntityFactory
 {
 public:
     std::shared_ptr<Entity> createEntity(EntityType type, std::string name,
-                                         int health, int base_damage,
-                                         int base_armor, std::map<std::string, double> enemy_resistances = {},
+                                         int health=0, int base_damage=0,
+                                         int base_armor=0, std::map<std::string, double> enemy_resistances = {},
                                          std::string weapon_type ="",
                                          double crit_chance=0);
 
@@ -31,4 +31,9 @@ private:
     std::shared_ptr<Entity> createPlayer(std::string name, int health, int base_damage,
                                          int base_armor);
 };
+
+
+int randomizeInt(int border_down, int border_up);
+double randomizeFloat(double border);
+
 #endif

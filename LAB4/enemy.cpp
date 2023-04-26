@@ -26,3 +26,8 @@ double Enemy::checkResistance(std::string type)
     if (it != resistances.end()) { return it->second; }
     else { return 0; }
 }
+
+void Enemy::addResistance(std::string name, double value)
+{
+    resistances[name] = value;
+}

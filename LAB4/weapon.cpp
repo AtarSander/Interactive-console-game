@@ -4,10 +4,18 @@
 void Weapon::attack(std::shared_ptr<Entity> other)
 {
     int damage = getBaseDamage();
+    if (!this -> exists())
+    {
+        damage = 0;
+    }
+    else
+    {
+        setHealth(getHealth() - 1);
+    }
     if (isCritical()) { damage = damage * damage; }
     other -> defend(damage);
     other -> transferParameter(type);
-    setHealth(getHealth() - 1);
+
 }
 
 bool Weapon::isCritical()

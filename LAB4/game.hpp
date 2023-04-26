@@ -22,7 +22,4 @@ class Game
         std::shared_ptr<Player> player;
 };
 
-int randomizeInt(int border_down, int border_up);
-double randomizeFloat(double border);
-
 #endif

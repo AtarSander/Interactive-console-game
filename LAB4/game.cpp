@@ -3,7 +3,6 @@
 #include <memory>
 #include <algorithm>
 #include <iostream>
-#include <random>
 
 void Game::play(std::shared_ptr<Player> player1)
 {
@@ -110,24 +109,4 @@ void Game::addEnemy(std::shared_ptr<Entity> enemy)
 void Game::addWeapon(std::shared_ptr<Entity> weapon)
 {
     list_of_weapons.push_back(weapon);
-}
-
-int randomizeInt(int border_down, int border_up)
-{
-    if (border_down > border_up)
-    {
-        return 0;
-    }
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(border_down, border_up);
-    return dis(gen);
-}
-
-double randomizeFloat(double border)
-{
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<double> dis(0.0, border);
-    return dis(gen);
 }

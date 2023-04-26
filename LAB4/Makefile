@@ -22,5 +22,16 @@ enemy.o: enemy.cpp entity.o
 entity.o: entity.cpp
 	$(CXX) $(CXX_FLAGS) -c entity.cpp -o entity.o
 
+test_entity: tests/test_entity.cpp entity.o
+	$(CXX) $(CXX_FLAGS) entity.o tests/test_entity.cpp -o test_entity && ./test_entity --success
+
+test_enemy: tests/test_enemy.cpp enemy.o entity.o
+	$(CXX) $(CXX_FLAGS) entity.o enemy.o tests/test_enemy.cpp -o test_enemy && ./test_enemy --success
+
+test_weapon: tests/test_weapon.cpp weapon.o entity.o enemy.o
+	$(CXX) $(CXX_FLAGS) entity.o enemy.o weapon.o tests/test_weapon.cpp -o test_weapon && ./test_weapon --success
+
+test: test_entity test_enemy test_weapon
+
 clean:
-	rm -f main *.o
+	rm -f main *.o LAB4 test_*

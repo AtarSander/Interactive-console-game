@@ -3,6 +3,7 @@
 #include <memory>
 #include <algorithm>
 #include <iostream>
+#include <random>
 
 void Game::play(std::shared_ptr<Player> player1)
 {
@@ -15,9 +16,14 @@ void Game::play(std::shared_ptr<Player> player1)
         if(!current_enemy -> exists())
         {
             current_enemy = list_of_enemies.front();
-            this -> selectWeapon(this -> inputStr());
-            player -> addWeapon(current_weapon);
             list_of_enemies.pop_front();
+            if(!list_of_enemies.empty())
+            {
+                this -> selectWeapon(this -> inputStr());
+                player -> addWeapon(current_weapon);
+            }
+
+
         }
         if (!player -> exists())
         {
@@ -36,14 +42,19 @@ void Game::play(std::shared_ptr<Player> player1)
 void Game::round()
 {
     int player_damage, player_health, enemy_health, enemy_damage;
+
     enemy_damage = current_enemy -> getHealth();
     player_damage = player -> getHealth();
+
     player -> attack(current_enemy);
     current_enemy -> attack(player);
+
     player_health = player -> getHealth();
     enemy_health = current_enemy -> getHealth();
+
     enemy_damage = enemy_damage - enemy_health;
     player_damage = player_damage - player_health;
+
     if (player_health < 0) player_health = 0;
     if (enemy_health < 0) enemy_health = 0;
     this -> printResult(player_damage, player_health, enemy_health, enemy_damage);
@@ -54,9 +65,9 @@ void Game::printResult(int player_damage, int player_health, int enemy_health, i
     std::string enemy_name = current_enemy -> getName();
     std::string player_name = player -> getName();
     std::cout << enemy_name << " took " << enemy_damage <<
-    " damage.\n He has " << enemy_health << " health points left.\n";
+    " damage.\nHe has " << enemy_health << " health points left.\n";
     std::cout << player_name << " took " << player_damage <<
-    " damage.\n He has " << player_health << " health points left.\n";
+    " damage.\nHe has " << player_health << " health points left.\n\n";
 }
 
 void Game::selectWeapon(std::string name)
@@ -101,25 +112,22 @@ void Game::addWeapon(std::shared_ptr<Entity> weapon)
     list_of_weapons.push_back(weapon);
 }
 
-// void inputData()
-// {
-//     std::string name, weapon_type;
-//     int health, base_damage, base_armor;
-//     std::map<std::string, double> enemy_resistances;
-//     double crit_chance;
-//     std::cout << "Name: ";
-//     std::cin >> name;
-//     std::cout << std::endl;
-//     std::cout << "Weapon type: ";
-//     std::cin >> weapon_type;
-//     std::cout << std::endl;
-//     std::cout << "Health: ";
-//     std::cin >> health;
-//     std::cout << std::endl;
-//     std::cout << "Base damage: ";
-//     std::cin >> base_damage;
-//     std::cout << std::endl;
-//     std::cout << "Base armor: ";
-//     std::cin >> base_damage;
-//     std::cout << std::endl;
-// }
+int randomizeInt(int border_down, int border_up)
+{
+    if (border_down > border_up)
+    {
+        return 0;
+    }
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(border_down, border_up);
+    return dis(gen);
+}
+
+double randomizeFloat(double border)
+{
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<double> dis(0.0, border);
+    return dis(gen);
+}
